@@ -53,4 +53,15 @@
             from_port: 22
             to_port: 22
             group_id: "{{BastionSGid}}"
-      register: joeypStackSG_out       rules
+      register: joeypStackSG_out
+
+    - name: Create Security Group with its own sg id
+      ec2_group:
+        name: joeyp-sg
+        description: Allow port 22 from  everywhere and all port within sg
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"
+        purge_rules: no
+        rules:
+          - proto: all
+            group_id: "{{joeypStackSG_out.group_id}}"
