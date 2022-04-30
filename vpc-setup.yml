@@ -40,7 +40,7 @@
         cidr: "{{ PubSub2Cidr }}"
         map_public: yes
         resource_tags:
-          Name: joeyp_pubsub2
+          Name: joeyp-pubsub2
       register: pubsub2_out
 
     - name: create Public subnet 3 in zone3
@@ -52,7 +52,7 @@
         cidr: "{{ PubSub3Cidr }}"
         map_public: yes
         resource_tags:
-          Name: joeyp_pubsub3
+          Name: joeyp-pubsub3
       register: pubsub3_out
 
     - name: create Private Subnet 1 in Zone1
@@ -63,7 +63,7 @@
         state: "{{state}}"
         cidr: "{{ PrivSub1Cidr }}"
         resource_tags:
-          Name: joeyp_privsub1
+          Name: joeyp-privsub1
       register: privsub1_out
 
     - name: create Private subnet 2 in zone2
@@ -74,7 +74,7 @@
         state: "{{state}}"
         cidr: "{{ PrivSub2Cidr }}"
         resource_tags:
-          Name: joeyp_privsub2
+          Name: joeyp-privsub2
       register: privsub2_out
 
 
@@ -87,5 +87,5 @@
         state: "{{state}}"
         cidr: "{{ PrivSub3Cidr }}"
         resource_tags:
-        Name: joeyp_privsub3
-    register: privsub3_out
+          Name: joeyp-privsub3
+      register: privsub3_out
