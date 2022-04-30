@@ -20,3 +20,7 @@ zone2: sa-east-1b
 zone3: sa-east-1c
 
 state: present
+
+# Bastion vars
+bastion_ami: ami-0926203d0eabb4ea6
+MYIP: 102.89.45.94/32
