@@ -1,3 +1,4 @@
+region: sa-east-1
 vpcid: vpc-07b15f5a9c0d6129e
 pubsub1id: subnet-0875e167ecb76f553
 pubsub2id: subnet-0aa5f632f2513565e

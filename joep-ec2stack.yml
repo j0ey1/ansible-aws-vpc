@@ -1,0 +1,24 @@
+---
+- name: Setup joeyp stack
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Import VPC setup variable
+      include_vars: vars/vpc-output_vars
+
+    - name: Import joeystack setup variable
+      include_vars: vars/joeystacksetup
+
+    - name: Create joeystack ec2 key
+      ec2_key:
+        name: joeykey
+        region: "{{region}}"
+      register: joeykey_out
+
+    - name: Save priv key into file jokeypair.pem
+      copy:
+        content: "{{joeykey_out.key.private_key}}"
+        dest: "./jokeypair.pem"
+        mode: 0400
+      when: joeykey_out.changed
