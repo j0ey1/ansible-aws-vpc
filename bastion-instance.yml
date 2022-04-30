@@ -15,8 +15,7 @@
         name: joeyp-key
         region: "{{region}}"
       register: key_out
-
-
+      
     - name: Save private key into file bastion-key.pem
       copy:
         content: "{{key_out.key.private_key}}"
