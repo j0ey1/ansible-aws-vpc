@@ -74,8 +74,8 @@
         state: "{{state}}"
         cidr: "{{ PrivSub2Cidr }}"
         resource_tags:
-         Name: joeyp_privsub2
-     register: privsub2_out
+          Name: joeyp_privsub2
+      register: privsub2_out
 
 
 
