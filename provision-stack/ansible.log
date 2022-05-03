@@ -9,3 +9,20 @@
 2022-05-03 08:28:20,023 p=42767 u=ubuntu n=ansible | fatal: [localhost]: FAILED! => {"changed": false, "cmd": "/usr/bin/git checkout --force vp-rem", "msg": "Failed to checkout vp-rem", "rc": 1, "stderr": "error: pathspec 'vp-rem' did not match any file(s) known to git\n", "stderr_lines": ["error: pathspec 'vp-rem' did not match any file(s) known to git"], "stdout": "", "stdout_lines": []}
 2022-05-03 08:28:20,027 p=42767 u=ubuntu n=ansible | PLAY RECAP ******************************************************************************
 2022-05-03 08:28:20,028 p=42767 u=ubuntu n=ansible | localhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-05-03 08:49:56,237 p=47843 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *******************
+2022-05-03 08:49:56,256 p=47843 u=ubuntu n=ansible | TASK [Gathering Facts] ******************************************************************
+2022-05-03 08:49:57,624 p=47843 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 08:49:57,640 p=47843 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] *********************************************************
+2022-05-03 08:49:59,904 p=47843 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 08:50:02,010 p=47843 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 08:50:04,039 p=47843 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 08:50:04,049 p=47843 u=ubuntu n=ansible | TASK [Clone source code from github] ****************************************************
+2022-05-03 08:50:09,334 p=47843 u=ubuntu n=ansible | changed: [localhost]
+2022-05-03 08:50:09,345 p=47843 u=ubuntu n=ansible | TASK [mvn install command to build artifact] ********************************************
+2022-05-03 08:52:57,148 p=47843 u=ubuntu n=ansible | changed: [localhost]
+2022-05-03 08:52:57,169 p=47843 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] ************************************************
+2022-05-03 08:52:58,361 p=47843 u=ubuntu n=ansible | changed: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 08:52:58,373 p=47843 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] *************************************************
+2022-05-03 08:52:58,812 p=47843 u=ubuntu n=ansible | changed: [localhost]
+2022-05-03 08:52:58,829 p=47843 u=ubuntu n=ansible | PLAY RECAP ******************************************************************************
+2022-05-03 08:52:58,829 p=47843 u=ubuntu n=ansible | localhost                  : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
