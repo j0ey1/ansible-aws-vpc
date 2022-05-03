@@ -55,3 +55,673 @@
 2022-05-03 09:27:51,668 p=49651 u=ubuntu n=ansible | mc01                       : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2022-05-03 09:27:51,668 p=49651 u=ubuntu n=ansible | rmq01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 2022-05-03 09:27:51,669 p=49651 u=ubuntu n=ansible | web01                      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 11:14:42,419 p=52469 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] ***************************************************************************
+2022-05-03 11:14:42,431 p=52469 u=ubuntu n=ansible | TASK [Gathering Facts] **************************************************************************************************************************
+2022-05-03 11:14:43,873 p=52469 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:14:43,895 p=52469 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] *****************************************************************************************************************
+2022-05-03 11:14:46,344 p=52469 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 11:14:48,281 p=52469 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 11:14:50,263 p=52469 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 11:14:50,275 p=52469 u=ubuntu n=ansible | TASK [Clone source code from github] ************************************************************************************************************
+2022-05-03 11:14:51,218 p=52469 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:14:51,229 p=52469 u=ubuntu n=ansible | TASK [mvn install command to build artifact] ****************************************************************************************************
+2022-05-03 11:14:51,244 p=52469 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 11:14:51,256 p=52469 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] ********************************************************************************************************
+2022-05-03 11:14:52,162 p=52469 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 11:14:52,174 p=52469 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] *********************************************************************************************************
+2022-05-03 11:14:52,616 p=52469 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:14:52,634 p=52469 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] **************************************************************
+2022-05-03 11:14:52,639 p=52469 u=ubuntu n=ansible | TASK [Gathering Facts] **************************************************************************************************************************
+2022-05-03 11:14:54,222 p=52469 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:14:54,453 p=52469 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:14:54,493 p=52469 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:14:54,549 p=52469 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:14:54,567 p=52469 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:14:55,723 p=52469 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:14:55,741 p=52469 u=ubuntu n=ansible | TASK [Import VPC setup Variable] ****************************************************************************************************************
+2022-05-03 11:14:55,825 p=52469 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:14:55,864 p=52469 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:14:55,885 p=52469 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:14:55,909 p=52469 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:14:55,910 p=52469 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:14:55,919 p=52469 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:14:55,930 p=52469 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ******************************************************************************************************
+2022-05-03 11:14:56,821 p=52469 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:14:56,824 p=52469 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:14:56,825 p=52469 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:14:56,827 p=52469 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:14:56,876 p=52469 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:14:57,157 p=52469 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:14:57,177 p=52469 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] ********************************************************************************************
+2022-05-03 11:14:57,195 p=52469 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] ************************************************************************************************
+2022-05-03 11:18:37,940 p=52469 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 11:22:16,624 p=52469 u=ubuntu n=ansible | failed: [db01] (item=mysql-client) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-client", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 11:25:58,629 p=52469 u=ubuntu n=ansible | failed: [db01] (item=python-mysqldb) => {"ansible_loop_var": "item", "changed": false, "item": "python-mysqldb", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 11:28:02,247 p=52469 u=ubuntu n=ansible |  [ERROR]: User interrupted execution
+
+2022-05-03 11:28:20,510 p=54221 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] ***********************************************************************************************************************************
+2022-05-03 11:28:20,520 p=54221 u=ubuntu n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************
+2022-05-03 11:28:21,810 p=54221 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:28:21,829 p=54221 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] *************************************************************************************************************************************************************************
+2022-05-03 11:28:24,207 p=54221 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 11:28:26,156 p=54221 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 11:28:28,184 p=54221 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 11:28:28,196 p=54221 u=ubuntu n=ansible | TASK [Clone source code from github] ********************************************************************************************************************************************************************
+2022-05-03 11:28:29,111 p=54221 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:28:29,122 p=54221 u=ubuntu n=ansible | TASK [mvn install command to build artifact] ************************************************************************************************************************************************************
+2022-05-03 11:28:29,137 p=54221 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 11:28:29,151 p=54221 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] ****************************************************************************************************************************************************************
+2022-05-03 11:28:30,093 p=54221 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 11:28:30,106 p=54221 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] *****************************************************************************************************************************************************************
+2022-05-03 11:28:30,558 p=54221 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:28:30,578 p=54221 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] **********************************************************************************************************************
+2022-05-03 11:28:30,584 p=54221 u=ubuntu n=ansible | TASK [Gathering Facts] **********************************************************************************************************************************************************************************
+2022-05-03 11:28:32,248 p=54221 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:28:32,408 p=54221 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:28:32,424 p=54221 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:28:32,485 p=54221 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:28:32,518 p=54221 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:28:33,258 p=54221 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:28:33,276 p=54221 u=ubuntu n=ansible | TASK [Import VPC setup Variable] ************************************************************************************************************************************************************************
+2022-05-03 11:28:33,327 p=54221 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:28:33,360 p=54221 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:28:33,385 p=54221 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:28:33,405 p=54221 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:28:33,407 p=54221 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:28:33,418 p=54221 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:28:33,429 p=54221 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] **************************************************************************************************************************************************************
+2022-05-03 11:28:34,346 p=54221 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:28:34,347 p=54221 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:28:34,349 p=54221 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:28:34,350 p=54221 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:28:34,390 p=54221 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:28:34,659 p=54221 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:28:34,699 p=54221 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] ****************************************************************************************************************************************************
+2022-05-03 11:28:34,715 p=54221 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] ********************************************************************************************************************************************************
+2022-05-03 11:32:14,271 p=54221 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 11:35:32,292 p=54221 u=ubuntu n=ansible |  [ERROR]: User interrupted execution
+
+2022-05-03 11:44:13,891 p=55955 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *****************************
+2022-05-03 11:44:13,902 p=55955 u=ubuntu n=ansible | TASK [Gathering Facts] ****************************************************************************
+2022-05-03 11:44:15,206 p=55955 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:44:15,224 p=55955 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] *******************************************************************
+2022-05-03 11:44:24,092 p=55955 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 11:44:26,289 p=55955 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 11:44:28,196 p=55955 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 11:44:28,208 p=55955 u=ubuntu n=ansible | TASK [Clone source code from github] **************************************************************
+2022-05-03 11:44:29,245 p=55955 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:44:29,256 p=55955 u=ubuntu n=ansible | TASK [mvn install command to build artifact] ******************************************************
+2022-05-03 11:44:29,271 p=55955 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 11:44:29,282 p=55955 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] **********************************************************
+2022-05-03 11:44:30,424 p=55955 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 11:44:30,437 p=55955 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] ***********************************************************
+2022-05-03 11:44:30,887 p=55955 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:44:30,907 p=55955 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ****************
+2022-05-03 11:44:30,918 p=55955 u=ubuntu n=ansible | TASK [Gathering Facts] ****************************************************************************
+2022-05-03 11:44:32,584 p=55955 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:44:32,745 p=55955 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:44:32,771 p=55955 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:44:32,816 p=55955 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:44:32,849 p=55955 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:44:34,096 p=55955 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:44:34,114 p=55955 u=ubuntu n=ansible | TASK [Import VPC setup Variable] ******************************************************************
+2022-05-03 11:44:34,161 p=55955 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:44:34,184 p=55955 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:44:34,208 p=55955 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:44:34,233 p=55955 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:44:34,234 p=55955 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:44:34,240 p=55955 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:44:34,251 p=55955 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ********************************************************
+2022-05-03 11:44:35,137 p=55955 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:44:35,139 p=55955 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:44:35,141 p=55955 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:44:35,144 p=55955 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:44:35,195 p=55955 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:44:35,500 p=55955 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:44:35,520 p=55955 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] **********************************************
+2022-05-03 11:44:35,537 p=55955 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] **************************************************
+2022-05-03 11:48:14,732 p=55955 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 11:51:56,456 p=55955 u=ubuntu n=ansible | failed: [db01] (item=mysql-client) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-client", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 11:53:58,256 p=55955 u=ubuntu n=ansible |  [ERROR]: User interrupted execution
+
+2022-05-03 11:54:05,966 p=57839 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *****************************
+2022-05-03 11:54:05,982 p=57839 u=ubuntu n=ansible | TASK [Gathering Facts] ****************************************************************************
+2022-05-03 11:54:07,332 p=57839 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:54:07,380 p=57839 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] *******************************************************************
+2022-05-03 11:54:09,770 p=57839 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 11:54:11,697 p=57839 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 11:54:13,649 p=57839 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 11:54:13,662 p=57839 u=ubuntu n=ansible | TASK [Clone source code from github] **************************************************************
+2022-05-03 11:54:14,572 p=57839 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:54:14,589 p=57839 u=ubuntu n=ansible | TASK [mvn install command to build artifact] ******************************************************
+2022-05-03 11:54:14,605 p=57839 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 11:54:14,624 p=57839 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] **********************************************************
+2022-05-03 11:54:15,568 p=57839 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 11:54:15,579 p=57839 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] ***********************************************************
+2022-05-03 11:54:16,027 p=57839 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 11:54:16,047 p=57839 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ****************
+2022-05-03 11:54:16,052 p=57839 u=ubuntu n=ansible | TASK [Gathering Facts] ****************************************************************************
+2022-05-03 11:54:17,681 p=57839 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:54:17,902 p=57839 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:54:17,908 p=57839 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:54:17,966 p=57839 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:54:17,972 p=57839 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:54:18,640 p=57839 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:54:18,658 p=57839 u=ubuntu n=ansible | TASK [Import VPC setup Variable] ******************************************************************
+2022-05-03 11:54:18,707 p=57839 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:54:18,740 p=57839 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:54:18,763 p=57839 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:54:18,788 p=57839 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:54:18,789 p=57839 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:54:18,798 p=57839 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:54:18,809 p=57839 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ********************************************************
+2022-05-03 11:54:19,704 p=57839 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 11:54:19,710 p=57839 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 11:54:19,711 p=57839 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 11:54:19,711 p=57839 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 11:54:19,784 p=57839 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 11:54:20,074 p=57839 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:54:20,092 p=57839 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] **********************************************
+2022-05-03 11:54:20,108 p=57839 u=ubuntu n=ansible | TASK [Enforce appropriate /tmp folder permissions] ************************************************
+2022-05-03 11:54:20,426 p=57839 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 11:54:20,438 p=57839 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] **************************************************
+2022-05-03 11:58:01,638 p=57839 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 11:58:06,566 p=57839 u=ubuntu n=ansible |  [ERROR]: User interrupted execution
+
+2022-05-03 12:01:00,213 p=59472 u=ubuntu n=ansible | ERROR! conflicting action statements: hosts, tasks
+
+The error appears to be in '/home/ubuntu/ansible-aws-vpc/provision-stack/db.yml': line 6, column 5, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+  - hosts: all
+    ^ here
+
+2022-05-03 12:04:15,824 p=59592 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *****************************
+2022-05-03 12:04:15,834 p=59592 u=ubuntu n=ansible | TASK [Gathering Facts] ****************************************************************************
+2022-05-03 12:04:17,134 p=59592 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:04:17,153 p=59592 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] *******************************************************************
+2022-05-03 12:04:19,367 p=59592 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 12:04:21,380 p=59592 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 12:04:23,397 p=59592 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 12:04:23,409 p=59592 u=ubuntu n=ansible | TASK [Clone source code from github] **************************************************************
+2022-05-03 12:04:24,328 p=59592 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:04:24,340 p=59592 u=ubuntu n=ansible | TASK [mvn install command to build artifact] ******************************************************
+2022-05-03 12:04:24,356 p=59592 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 12:04:24,368 p=59592 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] **********************************************************
+2022-05-03 12:04:25,296 p=59592 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 12:04:25,308 p=59592 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] ***********************************************************
+2022-05-03 12:04:25,791 p=59592 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:04:25,810 p=59592 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ****************
+2022-05-03 12:04:25,816 p=59592 u=ubuntu n=ansible | TASK [Gathering Facts] ****************************************************************************
+2022-05-03 12:04:27,412 p=59592 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:04:27,727 p=59592 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:04:27,743 p=59592 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:04:27,771 p=59592 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:04:27,776 p=59592 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:04:28,915 p=59592 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:04:28,934 p=59592 u=ubuntu n=ansible | TASK [Import VPC setup Variable] ******************************************************************
+2022-05-03 12:04:28,985 p=59592 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:04:29,010 p=59592 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:04:29,031 p=59592 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:04:29,057 p=59592 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:04:29,058 p=59592 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:04:29,068 p=59592 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:04:29,079 p=59592 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ********************************************************
+2022-05-03 12:04:29,995 p=59592 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:04:29,998 p=59592 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:04:29,999 p=59592 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:04:30,000 p=59592 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:04:30,041 p=59592 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:04:30,312 p=59592 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:04:30,352 p=59592 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] **********************************************
+2022-05-03 12:04:30,368 p=59592 u=ubuntu n=ansible | TASK [Update Package Cache (apt/Ubuntu)] **********************************************************
+2022-05-03 12:08:08,806 p=59592 u=ubuntu n=ansible | fatal: [db01]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 12:08:08,808 p=59592 u=ubuntu n=ansible | PLAY RECAP ****************************************************************************************
+2022-05-03 12:08:08,809 p=59592 u=ubuntu n=ansible | app01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:08:08,810 p=59592 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:08:08,810 p=59592 u=ubuntu n=ansible | db01                       : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:08:08,811 p=59592 u=ubuntu n=ansible | localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-05-03 12:08:08,812 p=59592 u=ubuntu n=ansible | mc01                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:08:08,813 p=59592 u=ubuntu n=ansible | rmq01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:08:08,814 p=59592 u=ubuntu n=ansible | web01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:15:35,239 p=61221 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *************************************************
+2022-05-03 12:15:35,249 p=61221 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************************
+2022-05-03 12:15:36,561 p=61221 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:15:36,580 p=61221 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] ***************************************************************************************
+2022-05-03 12:15:38,984 p=61221 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 12:15:41,009 p=61221 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 12:15:43,011 p=61221 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 12:15:43,024 p=61221 u=ubuntu n=ansible | TASK [Clone source code from github] **********************************************************************************
+2022-05-03 12:15:43,908 p=61221 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:15:43,920 p=61221 u=ubuntu n=ansible | TASK [mvn install command to build artifact] **************************************************************************
+2022-05-03 12:15:43,936 p=61221 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 12:15:43,948 p=61221 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] ******************************************************************************
+2022-05-03 12:15:44,905 p=61221 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 12:15:44,917 p=61221 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] *******************************************************************************
+2022-05-03 12:15:45,387 p=61221 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:15:45,405 p=61221 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ************************************
+2022-05-03 12:15:45,411 p=61221 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************************
+2022-05-03 12:15:47,006 p=61221 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:15:47,231 p=61221 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:15:47,251 p=61221 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:15:47,330 p=61221 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:15:47,350 p=61221 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:15:48,538 p=61221 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:15:48,555 p=61221 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **************************************************************************************
+2022-05-03 12:15:48,616 p=61221 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:15:48,644 p=61221 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:15:48,667 p=61221 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:15:48,691 p=61221 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:15:48,692 p=61221 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:15:48,701 p=61221 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:15:48,713 p=61221 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ****************************************************************************
+2022-05-03 12:15:49,594 p=61221 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:15:49,607 p=61221 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:15:49,608 p=61221 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:15:49,635 p=61221 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:15:49,691 p=61221 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:15:49,952 p=61221 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:15:49,972 p=61221 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] ******************************************************************
+2022-05-03 12:15:49,988 p=61221 u=ubuntu n=ansible | TASK [Update Package Cache (apt/Ubuntu)] ******************************************************************************
+2022-05-03 12:19:29,240 p=61221 u=ubuntu n=ansible | fatal: [db01]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 12:19:29,241 p=61221 u=ubuntu n=ansible | PLAY RECAP ************************************************************************************************************
+2022-05-03 12:19:29,242 p=61221 u=ubuntu n=ansible | app01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:19:29,243 p=61221 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:19:29,243 p=61221 u=ubuntu n=ansible | db01                       : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:19:29,244 p=61221 u=ubuntu n=ansible | localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-05-03 12:19:29,245 p=61221 u=ubuntu n=ansible | mc01                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:19:29,246 p=61221 u=ubuntu n=ansible | rmq01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:19:29,247 p=61221 u=ubuntu n=ansible | web01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:28:40,984 p=62845 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *************************************************
+2022-05-03 12:28:40,999 p=62845 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************************
+2022-05-03 12:28:42,299 p=62845 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:28:42,318 p=62845 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] ***************************************************************************************
+2022-05-03 12:28:46,448 p=62845 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 12:28:48,481 p=62845 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 12:28:50,446 p=62845 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 12:28:50,459 p=62845 u=ubuntu n=ansible | TASK [Clone source code from github] **********************************************************************************
+2022-05-03 12:28:51,382 p=62845 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:28:51,395 p=62845 u=ubuntu n=ansible | TASK [mvn install command to build artifact] **************************************************************************
+2022-05-03 12:28:51,409 p=62845 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 12:28:51,421 p=62845 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] ******************************************************************************
+2022-05-03 12:28:52,483 p=62845 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 12:28:52,495 p=62845 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] *******************************************************************************
+2022-05-03 12:28:53,022 p=62845 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:28:53,041 p=62845 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ************************************
+2022-05-03 12:28:53,047 p=62845 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************************
+2022-05-03 12:28:54,733 p=62845 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:28:54,884 p=62845 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:28:54,927 p=62845 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:28:54,956 p=62845 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:28:54,972 p=62845 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:28:56,241 p=62845 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:28:56,259 p=62845 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **************************************************************************************
+2022-05-03 12:28:56,310 p=62845 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:28:56,333 p=62845 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:28:56,357 p=62845 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:28:56,381 p=62845 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:28:56,382 p=62845 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:28:56,392 p=62845 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:28:56,402 p=62845 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ****************************************************************************
+2022-05-03 12:28:57,267 p=62845 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:28:57,280 p=62845 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:28:57,281 p=62845 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:28:57,281 p=62845 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:28:57,342 p=62845 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:28:57,613 p=62845 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:28:57,632 p=62845 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] ******************************************************************
+2022-05-03 12:28:57,648 p=62845 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] **********************************************************************
+2022-05-03 12:28:58,131 p=62845 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Unsupported parameters for (ansible.legacy.apt) module: apt. Supported parameters include: autoremove, cache_valid_time, update_cache_retry_max_delay, fail_on_autoremove, dpkg_options, only_upgrade, allow_downgrade (allow-downgrade, allow-downgrades, allow_downgrades), deb, lock_timeout, policy_rc_d, update_cache_retries, upgrade, package (name, pkg), default_release (default-release), allow_unauthenticated (allow-unauthenticated), install_recommends (install-recommends), purge, update_cache (update-cache), force_apt_get, state, force, autoclean."}
+2022-05-03 12:28:58,556 p=62845 u=ubuntu n=ansible | failed: [db01] (item=mysql-client) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-client", "msg": "Unsupported parameters for (ansible.legacy.apt) module: apt. Supported parameters include: only_upgrade, dpkg_options, update_cache_retries, autoclean, state, force, purge, upgrade, allow_unauthenticated (allow-unauthenticated), default_release (default-release), fail_on_autoremove, update_cache (update-cache), lock_timeout, autoremove, policy_rc_d, allow_downgrade (allow-downgrade, allow-downgrades, allow_downgrades), deb, force_apt_get, cache_valid_time, package (name, pkg), update_cache_retry_max_delay, install_recommends (install-recommends)."}
+2022-05-03 12:28:58,982 p=62845 u=ubuntu n=ansible | failed: [db01] (item=python-mysqldb) => {"ansible_loop_var": "item", "changed": false, "item": "python-mysqldb", "msg": "Unsupported parameters for (ansible.legacy.apt) module: apt. Supported parameters include: update_cache (update-cache), deb, policy_rc_d, upgrade, fail_on_autoremove, state, dpkg_options, lock_timeout, update_cache_retry_max_delay, cache_valid_time, autoclean, update_cache_retries, default_release (default-release), allow_unauthenticated (allow-unauthenticated), package (name, pkg), autoremove, install_recommends (install-recommends), purge, force_apt_get, only_upgrade, allow_downgrade (allow-downgrade, allow-downgrades, allow_downgrades), force."}
+2022-05-03 12:28:59,420 p=62845 u=ubuntu n=ansible | failed: [db01] (item=python3-mysqldb) => {"ansible_loop_var": "item", "changed": false, "item": "python3-mysqldb", "msg": "Unsupported parameters for (ansible.legacy.apt) module: apt. Supported parameters include: default_release (default-release), allow_downgrade (allow-downgrade, allow-downgrades, allow_downgrades), update_cache (update-cache), only_upgrade, package (name, pkg), fail_on_autoremove, autoclean, update_cache_retry_max_delay, autoremove, deb, purge, force_apt_get, update_cache_retries, install_recommends (install-recommends), cache_valid_time, policy_rc_d, lock_timeout, upgrade, force, dpkg_options, state, allow_unauthenticated (allow-unauthenticated)."}
+2022-05-03 12:28:59,847 p=62845 u=ubuntu n=ansible | failed: [db01] (item=libmysqlclient-dev) => {"ansible_loop_var": "item", "changed": false, "item": "libmysqlclient-dev", "msg": "Unsupported parameters for (ansible.legacy.apt) module: apt. Supported parameters include: lock_timeout, upgrade, autoclean, install_recommends (install-recommends), policy_rc_d, only_upgrade, state, default_release (default-release), dpkg_options, update_cache (update-cache), force_apt_get, fail_on_autoremove, allow_downgrade (allow-downgrade, allow-downgrades, allow_downgrades), allow_unauthenticated (allow-unauthenticated), deb, cache_valid_time, update_cache_retry_max_delay, update_cache_retries, force, package (name, pkg), purge, autoremove."}
+2022-05-03 12:28:59,849 p=62845 u=ubuntu n=ansible | ...ignoring
+2022-05-03 12:28:59,862 p=62845 u=ubuntu n=ansible | TASK [Start and enable mysql service] *********************************************************************************
+2022-05-03 12:29:00,684 p=62845 u=ubuntu n=ansible | fatal: [db01]: FAILED! => {"changed": false, "msg": "Could not find the requested service mysql: host"}
+2022-05-03 12:29:00,687 p=62845 u=ubuntu n=ansible | PLAY RECAP ************************************************************************************************************
+2022-05-03 12:29:00,687 p=62845 u=ubuntu n=ansible | app01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:29:00,688 p=62845 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:29:00,689 p=62845 u=ubuntu n=ansible | db01                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=1   
+2022-05-03 12:29:00,690 p=62845 u=ubuntu n=ansible | localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-05-03 12:29:00,691 p=62845 u=ubuntu n=ansible | mc01                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:29:00,692 p=62845 u=ubuntu n=ansible | rmq01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:29:00,694 p=62845 u=ubuntu n=ansible | web01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:34:58,701 p=64514 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *************************************************
+2022-05-03 12:34:58,713 p=64514 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************************
+2022-05-03 12:35:00,029 p=64514 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:35:00,048 p=64514 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] ***************************************************************************************
+2022-05-03 12:35:09,806 p=64514 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 12:35:11,954 p=64514 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 12:35:13,923 p=64514 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 12:35:13,935 p=64514 u=ubuntu n=ansible | TASK [Clone source code from github] **********************************************************************************
+2022-05-03 12:35:14,951 p=64514 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:35:14,962 p=64514 u=ubuntu n=ansible | TASK [mvn install command to build artifact] **************************************************************************
+2022-05-03 12:35:14,976 p=64514 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 12:35:14,988 p=64514 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] ******************************************************************************
+2022-05-03 12:35:16,116 p=64514 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 12:35:16,128 p=64514 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] *******************************************************************************
+2022-05-03 12:35:16,617 p=64514 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:35:16,636 p=64514 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ************************************
+2022-05-03 12:35:16,642 p=64514 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************************
+2022-05-03 12:35:18,293 p=64514 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:35:18,526 p=64514 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:35:18,531 p=64514 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:35:18,585 p=64514 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:35:18,590 p=64514 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:35:19,801 p=64514 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:35:19,819 p=64514 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **************************************************************************************
+2022-05-03 12:35:19,870 p=64514 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:35:19,893 p=64514 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:35:19,916 p=64514 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:35:19,943 p=64514 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:35:19,945 p=64514 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:35:19,954 p=64514 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:35:19,965 p=64514 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ****************************************************************************
+2022-05-03 12:35:20,865 p=64514 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:35:20,868 p=64514 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:35:20,868 p=64514 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:35:20,869 p=64514 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:35:20,923 p=64514 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:35:21,201 p=64514 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:35:21,222 p=64514 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] ******************************************************************
+2022-05-03 12:35:21,238 p=64514 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] **********************************************************************
+2022-05-03 12:39:01,009 p=64514 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 12:40:59,091 p=66667 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] ********************************************************************************************************
+2022-05-03 12:40:59,115 p=66667 u=ubuntu n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************************************
+2022-05-03 12:41:00,677 p=66667 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:41:00,696 p=66667 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] **********************************************************************************************************************************************
+2022-05-03 12:41:03,523 p=66667 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 12:41:05,744 p=66667 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 12:41:07,884 p=66667 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 12:41:07,898 p=66667 u=ubuntu n=ansible | TASK [Clone source code from github] *****************************************************************************************************************************************
+2022-05-03 12:41:08,916 p=66667 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:41:08,929 p=66667 u=ubuntu n=ansible | TASK [mvn install command to build artifact] *********************************************************************************************************************************
+2022-05-03 12:41:08,948 p=66667 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 12:41:08,963 p=66667 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] *************************************************************************************************************************************
+2022-05-03 12:41:10,590 p=66667 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 12:41:10,604 p=66667 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] **************************************************************************************************************************************
+2022-05-03 12:41:11,210 p=66667 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:41:11,231 p=66667 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] *******************************************************************************************
+2022-05-03 12:41:11,238 p=66667 u=ubuntu n=ansible | TASK [Gathering Facts] *******************************************************************************************************************************************************
+2022-05-03 12:41:13,158 p=66667 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:41:13,199 p=66667 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:41:13,210 p=66667 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:41:13,267 p=66667 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:41:13,287 p=66667 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:41:14,225 p=66667 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:41:14,251 p=66667 u=ubuntu n=ansible | TASK [Import VPC setup Variable] *********************************************************************************************************************************************
+2022-05-03 12:41:14,309 p=66667 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:41:14,336 p=66667 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:41:14,361 p=66667 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:41:14,387 p=66667 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:41:14,391 p=66667 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:41:14,402 p=66667 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:41:14,416 p=66667 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ***********************************************************************************************************************************
+2022-05-03 12:41:15,388 p=66667 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:41:15,392 p=66667 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:41:15,394 p=66667 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:41:15,396 p=66667 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:41:15,488 p=66667 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:41:15,771 p=66667 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:41:15,819 p=66667 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] *************************************************************************************************************************
+2022-05-03 12:41:15,857 p=66667 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] *****************************************************************************************************************************
+2022-05-03 12:41:50,908 p=64514 u=ubuntu n=ansible | failed: [db01] (item=mysql-client) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-client", "msg": "Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not get lock /var/lib/apt/lists/lock. It is held by process 3880 (python3)"}
+2022-05-03 12:42:22,166 p=66667 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not get lock /var/lib/apt/lists/lock. It is held by process 4243 (python3)"}
+2022-05-03 12:42:59,674 p=64514 u=ubuntu n=ansible | failed: [db01] (item=python-mysqldb) => {"ansible_loop_var": "item", "changed": false, "item": "python-mysqldb", "msg": "Failed to lock apt for exclusive operation: Failed to lock directory /var/lib/apt/lists/: E:Could not get lock /var/lib/apt/lists/lock. It is held by process 4644 (python3)"}
+2022-05-03 12:43:30,228 p=66667 u=ubuntu n=ansible |  [ERROR]: User interrupted execution
+
+2022-05-03 12:47:07,815 p=64514 u=ubuntu n=ansible | failed: [db01] (item=python3-mysqldb) => {"ansible_loop_var": "item", "changed": false, "item": "python3-mysqldb", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 12:50:47,281 p=64514 u=ubuntu n=ansible | failed: [db01] (item=libmysqlclient-dev) => {"ansible_loop_var": "item", "changed": false, "item": "libmysqlclient-dev", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 12:50:47,284 p=64514 u=ubuntu n=ansible | ...ignoring
+2022-05-03 12:50:47,298 p=64514 u=ubuntu n=ansible | TASK [Start and enable mysql service] *********************************************************************************
+2022-05-03 12:50:48,132 p=64514 u=ubuntu n=ansible | fatal: [db01]: FAILED! => {"changed": false, "msg": "Could not find the requested service mysql: host"}
+2022-05-03 12:50:48,135 p=64514 u=ubuntu n=ansible | PLAY RECAP ************************************************************************************************************
+2022-05-03 12:50:48,136 p=64514 u=ubuntu n=ansible | app01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:50:48,136 p=64514 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:50:48,138 p=64514 u=ubuntu n=ansible | db01                       : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=1   
+2022-05-03 12:50:48,139 p=64514 u=ubuntu n=ansible | localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-05-03 12:50:48,140 p=64514 u=ubuntu n=ansible | mc01                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:50:48,140 p=64514 u=ubuntu n=ansible | rmq01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:50:48,142 p=64514 u=ubuntu n=ansible | web01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 12:52:54,115 p=69255 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] ************************************************
+2022-05-03 12:52:54,137 p=69255 u=ubuntu n=ansible | TASK [Gathering Facts] ***********************************************************************************************
+2022-05-03 12:52:55,436 p=69255 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:52:55,455 p=69255 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] **************************************************************************************
+2022-05-03 12:52:57,896 p=69255 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 12:52:59,867 p=69255 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 12:53:01,989 p=69255 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 12:53:02,003 p=69255 u=ubuntu n=ansible | TASK [Clone source code from github] *********************************************************************************
+2022-05-03 12:53:02,920 p=69255 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:53:02,932 p=69255 u=ubuntu n=ansible | TASK [mvn install command to build artifact] *************************************************************************
+2022-05-03 12:53:02,948 p=69255 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 12:53:02,962 p=69255 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] *****************************************************************************
+2022-05-03 12:53:03,949 p=69255 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 12:53:03,962 p=69255 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] ******************************************************************************
+2022-05-03 12:53:04,418 p=69255 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 12:53:04,438 p=69255 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ***********************************
+2022-05-03 12:53:04,444 p=69255 u=ubuntu n=ansible | TASK [Gathering Facts] ***********************************************************************************************
+2022-05-03 12:53:06,208 p=69255 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:53:06,294 p=69255 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:53:06,372 p=69255 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:53:06,377 p=69255 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:53:06,407 p=69255 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:53:07,731 p=69255 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:53:07,749 p=69255 u=ubuntu n=ansible | TASK [Import VPC setup Variable] *************************************************************************************
+2022-05-03 12:53:07,802 p=69255 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:53:07,825 p=69255 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:53:07,851 p=69255 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:53:07,872 p=69255 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:53:07,876 p=69255 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:53:07,887 p=69255 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:53:07,901 p=69255 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ***************************************************************************
+2022-05-03 12:53:08,818 p=69255 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 12:53:08,820 p=69255 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 12:53:08,824 p=69255 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 12:53:08,828 p=69255 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 12:53:08,868 p=69255 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 12:53:09,155 p=69255 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 12:53:09,175 p=69255 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] *****************************************************************
+2022-05-03 12:53:09,193 p=69255 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] *********************************************************************
+2022-05-03 12:56:50,376 p=69255 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 12:57:36,830 p=69255 u=ubuntu n=ansible |  [ERROR]: User interrupted execution
+
+2022-05-03 13:04:47,644 p=71125 u=ubuntu n=ansible | ERROR! conflicting action statements: apt, sudo
+
+The error appears to be in '/home/ubuntu/ansible-aws-vpc/provision-stack/db.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Installing Mysql Service and dependencies
+      ^ here
+
+2022-05-03 13:07:11,043 p=71203 u=ubuntu n=ansible | ERROR! conflicting action statements: apt, sudo
+
+The error appears to be in '/home/ubuntu/ansible-aws-vpc/provision-stack/db.yml': line 6, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  tasks:
+    - name: Installing Mysql Service and dependencies
+      ^ here
+
+2022-05-03 13:08:31,177 p=71289 u=ubuntu n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  mapping values are not allowed in this context
+
+The error appears to be in '/home/ubuntu/ansible-aws-vpc/provision-stack/db.yml': line 7, column 10, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  - name: Installing Mysql Service and dependencies
+      apt: name={{item}} update_cache=yes force_apt_get=yes cache_valid_time=86400 state=present
+         ^ here
+We could be wrong, but this one looks like it might be an issue with
+missing quotes. Always quote template expression brackets when they
+start a value. For instance:
+
+    with_items:
+      - {{ foo }}
+
+Should be written as:
+
+    with_items:
+      - "{{ foo }}"
+
+2022-05-03 13:10:13,978 p=71409 u=ubuntu n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ubuntu/ansible-aws-vpc/provision-stack/db.yml': line 52, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+handlers:
+^ here
+
+2022-05-03 13:11:37,165 p=71499 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *************************************
+2022-05-03 13:11:37,176 p=71499 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************
+2022-05-03 13:11:38,521 p=71499 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 13:11:38,557 p=71499 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] ***************************************************************************
+2022-05-03 13:11:41,036 p=71499 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 13:11:43,098 p=71499 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 13:11:45,141 p=71499 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 13:11:45,154 p=71499 u=ubuntu n=ansible | TASK [Clone source code from github] **********************************************************************
+2022-05-03 13:11:46,073 p=71499 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 13:11:46,084 p=71499 u=ubuntu n=ansible | TASK [mvn install command to build artifact] **************************************************************
+2022-05-03 13:11:46,099 p=71499 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 13:11:46,110 p=71499 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] ******************************************************************
+2022-05-03 13:11:47,066 p=71499 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 13:11:47,082 p=71499 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] *******************************************************************
+2022-05-03 13:11:47,547 p=71499 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 13:11:47,568 p=71499 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ************************
+2022-05-03 13:11:47,575 p=71499 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************
+2022-05-03 13:11:49,294 p=71499 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 13:11:49,430 p=71499 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 13:11:49,438 p=71499 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 13:11:49,501 p=71499 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 13:11:49,505 p=71499 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 13:11:50,812 p=71499 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 13:11:50,830 p=71499 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **************************************************************************
+2022-05-03 13:11:50,883 p=71499 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 13:11:50,909 p=71499 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 13:11:50,933 p=71499 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 13:11:50,957 p=71499 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 13:11:50,959 p=71499 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 13:11:50,969 p=71499 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 13:11:50,981 p=71499 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ****************************************************************
+2022-05-03 13:11:51,929 p=71499 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 13:11:51,930 p=71499 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 13:11:51,931 p=71499 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 13:11:51,932 p=71499 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 13:11:52,006 p=71499 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 13:11:52,272 p=71499 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 13:11:52,312 p=71499 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] ******************************************************
+2022-05-03 13:11:52,328 p=71499 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] **********************************************************
+2022-05-03 13:15:34,854 p=71499 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 13:18:32,222 p=71499 u=ubuntu n=ansible |  [ERROR]: User interrupted execution
+
+2022-05-03 13:18:54,601 p=73155 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *************************************
+2022-05-03 13:18:54,611 p=73155 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************
+2022-05-03 13:18:55,917 p=73155 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 13:18:55,936 p=73155 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] ***************************************************************************
+2022-05-03 13:18:58,218 p=73155 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 13:19:00,274 p=73155 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 13:19:02,342 p=73155 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 13:19:02,354 p=73155 u=ubuntu n=ansible | TASK [Clone source code from github] **********************************************************************
+2022-05-03 13:19:03,469 p=73155 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 13:19:03,481 p=73155 u=ubuntu n=ansible | TASK [mvn install command to build artifact] **************************************************************
+2022-05-03 13:19:03,497 p=73155 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 13:19:03,509 p=73155 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] ******************************************************************
+2022-05-03 13:19:04,458 p=73155 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 13:19:04,470 p=73155 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] *******************************************************************
+2022-05-03 13:19:04,925 p=73155 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 13:19:04,945 p=73155 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ************************
+2022-05-03 13:19:04,953 p=73155 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************
+2022-05-03 13:19:06,612 p=73155 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 13:19:06,765 p=73155 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 13:19:06,805 p=73155 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 13:19:06,910 p=73155 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 13:19:06,914 p=73155 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 13:19:07,601 p=73155 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 13:19:07,619 p=73155 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **************************************************************************
+2022-05-03 13:19:07,672 p=73155 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 13:19:07,696 p=73155 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 13:19:07,723 p=73155 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 13:19:07,746 p=73155 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 13:19:07,748 p=73155 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 13:19:07,758 p=73155 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 13:19:07,769 p=73155 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ****************************************************************
+2022-05-03 13:19:08,696 p=73155 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 13:19:08,700 p=73155 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 13:19:08,700 p=73155 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 13:19:08,701 p=73155 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 13:19:08,793 p=73155 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 13:19:09,053 p=73155 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 13:19:09,073 p=73155 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] ******************************************************
+2022-05-03 13:19:09,090 p=73155 u=ubuntu n=ansible | TASK [Installing Mysql Service and dependencies] **********************************************************
+2022-05-03 13:22:47,499 p=73155 u=ubuntu n=ansible | failed: [db01] (item=mysql-server) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-server", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 13:26:30,173 p=73155 u=ubuntu n=ansible | failed: [db01] (item=mysql-client) => {"ansible_loop_var": "item", "changed": false, "item": "mysql-client", "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 13:30:06,564 p=73155 u=ubuntu n=ansible |  [ERROR]: User interrupted execution
+
+2022-05-03 13:31:51,865 p=74888 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *************************************
+2022-05-03 13:31:51,876 p=74888 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************
+2022-05-03 13:31:53,204 p=74888 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 13:31:53,241 p=74888 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] ***************************************************************************
+2022-05-03 13:32:02,483 p=74888 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 13:32:04,828 p=74888 u=ubuntu n=ansible | ok: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 13:32:06,952 p=74888 u=ubuntu n=ansible | ok: [localhost] => (item=maven)
+2022-05-03 13:32:06,966 p=74888 u=ubuntu n=ansible | TASK [Clone source code from github] **********************************************************************
+2022-05-03 13:32:07,996 p=74888 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 13:32:08,009 p=74888 u=ubuntu n=ansible | TASK [mvn install command to build artifact] **************************************************************
+2022-05-03 13:32:08,026 p=74888 u=ubuntu n=ansible | skipping: [localhost]
+2022-05-03 13:32:08,039 p=74888 u=ubuntu n=ansible | TASK [Copy artifacts to files directory] ******************************************************************
+2022-05-03 13:32:09,172 p=74888 u=ubuntu n=ansible | ok: [localhost] => (item=/home/ubuntu/ansible-aws-vpc/provision-stack/joeyp-repo/target/vprofile-v2.war)
+2022-05-03 13:32:09,184 p=74888 u=ubuntu n=ansible | TASK [Copy SQL file to files directory] *******************************************************************
+2022-05-03 13:32:09,675 p=74888 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 13:32:09,693 p=74888 u=ubuntu n=ansible | PLAY [Set host to ip mapping in /etc/hosts file of all the instances in the stack] ************************
+2022-05-03 13:32:09,700 p=74888 u=ubuntu n=ansible | TASK [Gathering Facts] ************************************************************************************
+2022-05-03 13:32:11,401 p=74888 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 13:32:11,555 p=74888 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 13:32:11,561 p=74888 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 13:32:11,615 p=74888 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 13:32:11,629 p=74888 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 13:32:12,927 p=74888 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 13:32:12,945 p=74888 u=ubuntu n=ansible | TASK [Import VPC setup Variable] **************************************************************************
+2022-05-03 13:32:12,997 p=74888 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 13:32:13,021 p=74888 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 13:32:13,048 p=74888 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 13:32:13,069 p=74888 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 13:32:13,072 p=74888 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 13:32:13,083 p=74888 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 13:32:13,094 p=74888 u=ubuntu n=ansible | TASK [Update hosts file for all the hosts] ****************************************************************
+2022-05-03 13:32:14,022 p=74888 u=ubuntu n=ansible | ok: [app01]
+2022-05-03 13:32:14,026 p=74888 u=ubuntu n=ansible | ok: [web01]
+2022-05-03 13:32:14,027 p=74888 u=ubuntu n=ansible | ok: [mc01]
+2022-05-03 13:32:14,029 p=74888 u=ubuntu n=ansible | ok: [rmq01]
+2022-05-03 13:32:14,080 p=74888 u=ubuntu n=ansible | ok: [cntl]
+2022-05-03 13:32:14,382 p=74888 u=ubuntu n=ansible | ok: [db01]
+2022-05-03 13:32:14,401 p=74888 u=ubuntu n=ansible | PLAY [Setup Mysql with accounts db and remote login] ******************************************************
+2022-05-03 13:32:14,418 p=74888 u=ubuntu n=ansible | TASK [Update Package Cache (apt/Ubuntu)] ******************************************************************
+2022-05-03 13:35:56,358 p=74888 u=ubuntu n=ansible | fatal: [db01]: FAILED! => {"changed": false, "msg": "Failed to update apt cache: unknown reason"}
+2022-05-03 13:35:56,360 p=74888 u=ubuntu n=ansible | PLAY RECAP ************************************************************************************************
+2022-05-03 13:35:56,361 p=74888 u=ubuntu n=ansible | app01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 13:35:56,362 p=74888 u=ubuntu n=ansible | cntl                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 13:35:56,364 p=74888 u=ubuntu n=ansible | db01                       : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2022-05-03 13:35:56,364 p=74888 u=ubuntu n=ansible | localhost                  : ok=5    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0   
+2022-05-03 13:35:56,365 p=74888 u=ubuntu n=ansible | mc01                       : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 13:35:56,366 p=74888 u=ubuntu n=ansible | rmq01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2022-05-03 13:35:56,367 p=74888 u=ubuntu n=ansible | web01                      : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
