@@ -1,0 +1,11 @@
+2022-05-03 08:27:00,369 p=42767 u=ubuntu n=ansible | PLAY [Generate artifact, copy artifact & sql file to files directory] *******************
+2022-05-03 08:27:00,385 p=42767 u=ubuntu n=ansible | TASK [Gathering Facts] ******************************************************************
+2022-05-03 08:27:01,737 p=42767 u=ubuntu n=ansible | ok: [localhost]
+2022-05-03 08:27:01,753 p=42767 u=ubuntu n=ansible | TASK [Install  jdk, maven, git] *********************************************************
+2022-05-03 08:27:12,476 p=42767 u=ubuntu n=ansible | ok: [localhost] => (item=git)
+2022-05-03 08:28:00,256 p=42767 u=ubuntu n=ansible | changed: [localhost] => (item=openjdk-8-jdk)
+2022-05-03 08:28:18,261 p=42767 u=ubuntu n=ansible | changed: [localhost] => (item=maven)
+2022-05-03 08:28:18,274 p=42767 u=ubuntu n=ansible | TASK [Clone source code from github] ****************************************************
+2022-05-03 08:28:20,023 p=42767 u=ubuntu n=ansible | fatal: [localhost]: FAILED! => {"changed": false, "cmd": "/usr/bin/git checkout --force vp-rem", "msg": "Failed to checkout vp-rem", "rc": 1, "stderr": "error: pathspec 'vp-rem' did not match any file(s) known to git\n", "stderr_lines": ["error: pathspec 'vp-rem' did not match any file(s) known to git"], "stdout": "", "stdout_lines": []}
+2022-05-03 08:28:20,027 p=42767 u=ubuntu n=ansible | PLAY RECAP ******************************************************************************
+2022-05-03 08:28:20,028 p=42767 u=ubuntu n=ansible | localhost                  : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
